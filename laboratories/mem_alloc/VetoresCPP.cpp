@@ -97,6 +97,32 @@ bool EIgual(int* pveta, int* pvetb, int ptama, int ptamb) {
     return true;
 }
 
+void Algoritmo() {
+    int n, numMenorDem = 0;
+    double S = 0;
+    int* v = NULL;
+
+    cout << "Insira o número de elementos: ";
+    cin >> n;
+
+    v = new int[n];
+
+    for (int i = 1; i <= n; i++) {
+        cout << "Elemento #" << i << ": ";
+        cin >> v[i];
+    }
+
+    for (int i = 1; i <= n; i++) {
+        S += ((float) i)/((float) v[i]);
+        if (i < v[i]) {
+            numMenorDem++;
+        }
+    }
+
+    cout << "Soma S: " << S << endl;
+    cout << "Número de termos com numerador menor que o denominador: " << numMenorDem << endl;
+}
+
 int main() {
     // Função main, para testar funções.
 
@@ -139,6 +165,9 @@ int main() {
     int tamVet_b = size(vetorInt_b);
 
     cout << EIgual(vetorInt_a, vetorInt_b, tamVet_a, tamVet_b) << "\n";
+
+    // 7.
+    Algoritmo();
 
     delete[] vetor, vetorChar, vetorDouble;
 
